@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Handshake Calculator</title>
+</head>
+<body>
+  <h1>Handshake Calculator</h1>
+  <p>Enter the number of people:</p>
+  <input type="number" id="numPeople" min="2">
+  <button onclick="calculateHandshakes()">Calculate</button>
+  <p id="result"></p>
+
+  <script>
+    function calculateHandshakes() {
+      const numPeopleInput = document.getElementById('numPeople');
+      const numPeople = parseInt(numPeopleInput.value);
+
+      if (isNaN(numPeople) || numPeople < 2) {
+        document.getElementById('result').textContent = "Please enter a valid number of people (at least 2).";
+        return;
+      }
+
+      const numHandshakes = (numPeople * (numPeople - 1)) / 2;
+      document.getElementById('result').textContent = `Number of handshakes: ${numHandshakes}`;
+    }
+  </script>
+</body>
+</html>
